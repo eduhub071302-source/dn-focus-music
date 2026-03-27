@@ -5,8 +5,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-01.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-01.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-02",
@@ -14,8 +14,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-02.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-02.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-03",
@@ -23,8 +23,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-03.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-03.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-04",
@@ -32,8 +32,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-04.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-04.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-05",
@@ -41,8 +41,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-05.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-05.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-06",
@@ -50,8 +50,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-06.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-06.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-07",
@@ -59,8 +59,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-07.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-07.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-08",
@@ -68,8 +68,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-08.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-08.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-09",
@@ -77,8 +77,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-09.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-09.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
   {
     "id": "ambient-10",
@@ -86,8 +86,8 @@
     "artist": "DN Audio",
     "category": "ambient",
     "duration": "",
-    "file": "/assets/music/ambient/ambient-10.mp3",
-    "cover": "/assets/images/covers/ambient.jpg"
+    "file": "assets/music/ambient/ambient-10.mp3",
+    "cover": "assets/images/covers/ambient.jpg"
   },
 
   {
@@ -96,8 +96,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-01.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-01.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-02",
@@ -105,8 +105,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-02.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-02.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-03",
@@ -114,8 +114,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-03.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-03.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-04",
@@ -123,8 +123,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-04.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-04.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-05",
@@ -132,8 +132,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-05.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-05.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-06",
@@ -141,8 +141,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-06.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-06.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-07",
@@ -150,8 +150,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-07.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-07.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-08",
@@ -159,8 +159,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-08.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-08.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-09",
@@ -168,8 +168,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-09.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-09.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-10",
@@ -177,8 +177,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-10.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-10.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-11",
@@ -186,8 +186,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-11.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-11.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-12",
@@ -195,8 +195,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-12.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-12.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-13",
@@ -204,8 +204,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-13.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-13.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-14",
@@ -213,8 +213,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-14.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-14.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
   {
     "id": "calm-piano-15",
@@ -222,8 +222,8 @@
     "artist": "DN Audio",
     "category": "calm-piano",
     "duration": "",
-    "file": "/assets/music/calm-piano/calm-piano-15.mp3",
-    "cover": "/assets/images/covers/calm.jpg"
+    "file": "assets/music/calm-piano/calm-piano-15.mp3",
+    "cover": "assets/images/covers/calm.jpg"
   },
 
   {
@@ -232,8 +232,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-01.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-01.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-02",
@@ -241,8 +241,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-02.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-02.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-03",
@@ -250,8 +250,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-03.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-03.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-04",
@@ -259,8 +259,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-04.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-04.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-05",
@@ -268,8 +268,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-05.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-05.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-06",
@@ -277,8 +277,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-06.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-06.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-07",
@@ -286,8 +286,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-07.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-07.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-08",
@@ -295,8 +295,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-08.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-08.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-09",
@@ -304,8 +304,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-09.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-09.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-10",
@@ -313,8 +313,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-10.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-10.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-11",
@@ -322,8 +322,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-11.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-11.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
   {
     "id": "lofi-12",
@@ -331,8 +331,8 @@
     "artist": "DN Audio",
     "category": "lofi",
     "duration": "",
-    "file": "/assets/music/lofi/lofi-12.mp3",
-    "cover": "/assets/images/covers/lofi.jpg"
+    "file": "assets/music/lofi/lofi-12.mp3",
+    "cover": "assets/images/covers/lofi.jpg"
   },
 
   {
@@ -341,8 +341,8 @@
     "artist": "DN Audio",
     "category": "rain",
     "duration": "",
-    "file": "/assets/music/rain/rain-01.mp3",
-    "cover": "/assets/images/covers/rain.jpg"
+    "file": "assets/music/rain/rain-01.mp3",
+    "cover": "assets/images/covers/rain.jpg"
   },
   {
     "id": "rain-02",
@@ -350,8 +350,8 @@
     "artist": "DN Audio",
     "category": "rain",
     "duration": "",
-    "file": "/assets/music/rain/rain-02.mp3",
-    "cover": "/assets/images/covers/rain.jpg"
+    "file": "assets/music/rain/rain-02.mp3",
+    "cover": "assets/images/covers/rain.jpg"
   },
   {
     "id": "rain-03",
@@ -359,8 +359,8 @@
     "artist": "DN Audio",
     "category": "rain",
     "duration": "",
-    "file": "/assets/music/rain/rain-03.mp3",
-    "cover": "/assets/images/covers/rain.jpg"
+    "file": "assets/music/rain/rain-03.mp3",
+    "cover": "assets/images/covers/rain.jpg"
   },
   {
     "id": "rain-04",
@@ -368,8 +368,8 @@
     "artist": "DN Audio",
     "category": "rain",
     "duration": "",
-    "file": "/assets/music/rain/rain-04.mp3",
-    "cover": "/assets/images/covers/rain.jpg"
+    "file": "assets/music/rain/rain-04.mp3",
+    "cover": "assets/images/covers/rain.jpg"
   },
   {
     "id": "rain-05",
@@ -377,8 +377,8 @@
     "artist": "DN Audio",
     "category": "rain",
     "duration": "",
-    "file": "/assets/music/rain/rain-05.mp3",
-    "cover": "/assets/images/covers/rain.jpg"
+    "file": "assets/music/rain/rain-05.mp3",
+    "cover": "assets/images/covers/rain.jpg"
   },
 
   {
@@ -387,8 +387,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-01.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-01.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-02",
@@ -396,8 +396,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-02.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-02.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-03",
@@ -405,8 +405,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-03.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-03.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-04",
@@ -414,8 +414,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-04.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-04.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-05",
@@ -423,8 +423,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-05.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-05.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-06",
@@ -432,8 +432,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-06.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-06.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-07",
@@ -441,8 +441,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-07.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-07.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-08",
@@ -450,8 +450,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-08.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-08.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-09",
@@ -459,8 +459,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-09.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-09.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-10",
@@ -468,8 +468,8 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-10.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-10.mp3",
+    "cover": "assets/images/covers/white.jpg"
   },
   {
     "id": "white-11",
@@ -477,7 +477,7 @@
     "artist": "DN Audio",
     "category": "white-noise",
     "duration": "",
-    "file": "/assets/music/white-noise/white-11.mp3",
-    "cover": "/assets/images/covers/white.jpg"
+    "file": "assets/music/white-noise/white-11.mp3",
+    "cover": "assets/images/covers/white.jpg"
   }
 ]
