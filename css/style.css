@@ -10,7 +10,7 @@
   --accent: #5aa8ff;
   --accent-2: #8fc8ff;
   --accent-3: #7b6cff;
-  --success: #7fffd4;
+  --danger: #ff6b9a;
   --shadow: 0 20px 45px rgba(0, 0, 0, 0.38);
   --radius-xl: 28px;
   --radius-lg: 20px;
@@ -35,7 +35,7 @@ html, body {
 }
 
 body {
-  padding-bottom: 120px;
+  padding-bottom: 170px;
   overflow-x: hidden;
 }
 
@@ -44,8 +44,13 @@ img {
   max-width: 100%;
 }
 
-button {
+button,
+input {
   font: inherit;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .loading-screen {
@@ -96,6 +101,10 @@ button {
 
 .topbar {
   padding: 26px 18px 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
 }
 
 .eyebrow {
@@ -118,6 +127,22 @@ button {
   line-height: 1.55;
   font-size: 14px;
   max-width: 620px;
+}
+
+.install-btn {
+  flex: 0 0 auto;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(90, 168, 255, 0.25);
+  transition: transform 0.18s ease;
+}
+
+.install-btn:active {
+  transform: scale(0.97);
 }
 
 .app-shell {
@@ -356,9 +381,9 @@ button {
   bottom: 12px;
   z-index: 100;
   display: grid;
-  grid-template-columns: 58px 1fr auto;
+  grid-template-columns: 58px 1fr;
   gap: 12px;
-  align-items: center;
+  align-items: start;
   padding: 12px;
   border-radius: 24px;
   background: rgba(9, 18, 31, 0.96);
@@ -372,6 +397,17 @@ button {
   height: 58px;
   border-radius: 16px;
   object-fit: cover;
+}
+
+.player-main {
+  min-width: 0;
+}
+
+.player-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .player-meta {
@@ -396,10 +432,67 @@ button {
   text-overflow: ellipsis;
 }
 
+.favorite-btn {
+  border: none;
+  background: rgba(255,255,255,0.06);
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.favorite-btn.active {
+  background: rgba(255, 107, 154, 0.16);
+  color: var(--danger);
+}
+
+.progress-wrap {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.time-text {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.seek-bar {
+  width: 100%;
+  appearance: none;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  outline: none;
+  cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(90,168,255,0.18);
+}
+
+.seek-bar::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 .player-controls {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 12px;
 }
 
 .player-btn {
@@ -413,7 +506,8 @@ button {
   transition: transform 0.18s ease, background 0.18s ease;
 }
 
-.player-btn:active {
+.player-btn:active,
+.favorite-btn:active {
   transform: scale(0.94);
 }
 
@@ -434,6 +528,10 @@ button {
 }
 
 @media (min-width: 768px) {
+  body {
+    padding-bottom: 180px;
+  }
+
   .topbar {
     padding: 32px 28px 14px;
   }
