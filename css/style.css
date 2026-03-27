@@ -1,9 +1,6 @@
 :root {
   --bg: #07111d;
   --bg-2: #0b1525;
-  --panel: rgba(15, 27, 45, 0.92);
-  --panel-2: rgba(22, 37, 60, 0.96);
-  --card: rgba(18, 31, 50, 0.9);
   --text: #edf4ff;
   --muted: #9baecc;
   --line: rgba(255, 255, 255, 0.08);
@@ -14,8 +11,6 @@
   --shadow: 0 20px 45px rgba(0, 0, 0, 0.38);
   --radius-xl: 28px;
   --radius-lg: 20px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
 }
 
 * {
@@ -95,6 +90,28 @@ input {
   box-shadow: 0 0 30px rgba(90, 168, 255, 0.25);
 }
 
+.toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  background: rgba(11, 22, 38, 0.95);
+  color: #fff;
+  border: 1px solid var(--line);
+  padding: 12px 16px;
+  border-radius: 999px;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: var(--shadow);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
@@ -138,11 +155,6 @@ input {
   color: white;
   cursor: pointer;
   box-shadow: 0 12px 28px rgba(90, 168, 255, 0.25);
-  transition: transform 0.18s ease;
-}
-
-.install-btn:active {
-  transform: scale(0.97);
 }
 
 .app-shell {
@@ -211,14 +223,12 @@ input {
   border-radius: 16px;
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(8px);
 }
 
 .hero-stat span {
   display: block;
   font-size: 17px;
   font-weight: 700;
-  color: #fff;
 }
 
 .hero-stat small {
@@ -226,6 +236,24 @@ input {
   margin-top: 4px;
   color: var(--muted);
   font-size: 12px;
+}
+
+.search-wrap {
+  margin-bottom: 14px;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
 }
 
 .quick-categories {
@@ -249,7 +277,6 @@ input {
   padding: 10px 16px;
   border-radius: 999px;
   cursor: pointer;
-  transition: all 0.22s ease;
 }
 
 .chip.active {
@@ -259,10 +286,6 @@ input {
 }
 
 .section-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   margin-bottom: 14px;
 }
 
@@ -289,7 +312,6 @@ input {
 .category-title {
   margin: 8px 0 12px;
   font-size: 18px;
-  color: #ffffff;
 }
 
 .category-grid {
@@ -307,21 +329,15 @@ input {
   background: linear-gradient(180deg, rgba(20,34,54,0.95), rgba(14,26,43,0.95));
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  transform: translateY(0);
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, border-color 0.18s ease;
 }
 
 .track-card:hover {
   transform: translateY(-2px);
 }
 
-.track-card:active {
-  transform: scale(0.992);
-}
-
 .track-card.active {
   border-color: rgba(90, 168, 255, 0.9);
-  background: linear-gradient(180deg, rgba(24,42,68,1), rgba(18,32,52,1));
 }
 
 .track-cover {
@@ -329,7 +345,6 @@ input {
   height: 70px;
   border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
 }
 
 .track-text {
@@ -340,7 +355,6 @@ input {
   margin: 0 0 7px;
   font-size: 15px;
   font-weight: 700;
-  color: #fff;
 }
 
 .track-sub {
@@ -357,12 +371,6 @@ input {
   background: linear-gradient(135deg, var(--accent), var(--accent-3));
   color: white;
   cursor: pointer;
-  box-shadow: 0 12px 26px rgba(90, 168, 255, 0.28);
-  transition: transform 0.18s ease;
-}
-
-.track-play:active {
-  transform: scale(0.94);
 }
 
 .empty-state {
@@ -388,7 +396,7 @@ input {
   border-radius: 24px;
   background: rgba(9, 18, 31, 0.96);
   border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
 }
 
@@ -417,7 +425,6 @@ input {
 .player-title {
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -440,7 +447,6 @@ input {
   height: 38px;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease;
 }
 
 .favorite-btn.active {
@@ -477,7 +483,6 @@ input {
   height: 14px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(90,168,255,0.18);
 }
 
 .seek-bar::-moz-range-thumb {
@@ -503,17 +508,14 @@ input {
   background: #1a2a42;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.18s ease, background 0.18s ease;
 }
 
-.player-btn:active,
-.favorite-btn:active {
-  transform: scale(0.94);
+.player-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
 }
 
 .player-btn-main {
   background: linear-gradient(135deg, var(--accent), var(--accent-3));
-  box-shadow: 0 12px 28px rgba(90, 168, 255, 0.25);
 }
 
 @keyframes fadeUp {
@@ -528,10 +530,6 @@ input {
 }
 
 @media (min-width: 768px) {
-  body {
-    padding-bottom: 180px;
-  }
-
   .topbar {
     padding: 32px 28px 14px;
   }
