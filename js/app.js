@@ -10,6 +10,9 @@ const playerCategory = document.getElementById("playerCategory");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const repeatBtn = document.getElementById("repeatBtn");
+
 const loadingScreen = document.getElementById("loadingScreen");
 const chips = document.querySelectorAll(".chip");
 
@@ -18,6 +21,8 @@ const currentTimeEl = document.getElementById("currentTime");
 const totalTimeEl = document.getElementById("totalTime");
 const favoriteBtn = document.getElementById("favoriteBtn");
 const installBtn = document.getElementById("installBtn");
+const searchInput = document.getElementById("searchInput");
+const toast = document.getElementById("toast");
 
 let tracks = [];
 let filteredTracks = [];
@@ -25,21 +30,18 @@ let currentIndex = -1;
 let currentFilter = "all";
 let deferredPrompt = null;
 let favorites = JSON.parse(localStorage.getItem("dn-focus-favorites") || "[]");
+let isShuffleOn = false;
+let isRepeatOn = false;
+let searchTerm = "";
 
 function prettyCategory(category) {
   switch (category) {
-    case "calm-piano":
-      return "Calm Piano";
-    case "lofi":
-      return "LoFi";
-    case "rain":
-      return "Rain";
-    case "ambient":
-      return "Ambient";
-    case "white-noise":
-      return "White Noise";
-    default:
-      return category;
+    case "calm-piano": return "Calm Piano";
+    case "lofi": return "LoFi";
+    case "rain": return "Rain";
+    case "ambient": return "Ambient";
+    case "white-noise": return "White Noise";
+    default: return category;
   }
 }
 
@@ -48,6 +50,15 @@ function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs.toString().padStart(2, "0")}`;
+}
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1800);
 }
 
 function saveFavorites() {
@@ -65,8 +76,10 @@ function toggleFavorite() {
 
   if (isFavorite(trackId)) {
     favorites = favorites.filter((id) => id !== trackId);
+    showToast("Removed from favorites");
   } else {
     favorites.push(trackId);
+    showToast("Added to favorites");
   }
 
   saveFavorites();
@@ -87,23 +100,30 @@ function updateFavoriteButton() {
 }
 
 function applyFilter() {
-  if (currentFilter === "all") {
-    filteredTracks = [...tracks];
-  } else if (currentFilter === "favorites") {
-    filteredTracks = tracks.filter((track) => isFavorite(track.id));
-  } else {
-    filteredTracks = tracks.filter((track) => track.category === currentFilter);
+  let result = [...tracks];
+
+  if (currentFilter === "favorites") {
+    result = result.filter((track) => isFavorite(track.id));
+  } else if (currentFilter !== "all") {
+    result = result.filter((track) => track.category === currentFilter);
   }
 
+  if (searchTerm.trim()) {
+    const q = searchTerm.toLowerCase();
+    result = result.filter((track) =>
+      track.title.toLowerCase().includes(q) ||
+      prettyCategory(track.category).toLowerCase().includes(q)
+    );
+  }
+
+  filteredTracks = result;
   renderTracks();
 }
 
 function groupTracksByCategory(list) {
   const grouped = {};
   list.forEach((track) => {
-    if (!grouped[track.category]) {
-      grouped[track.category] = [];
-    }
+    if (!grouped[track.category]) grouped[track.category] = [];
     grouped[track.category].push(track);
   });
   return grouped;
@@ -120,7 +140,7 @@ function renderTracks() {
 
   trackCount.textContent = `${filteredTracks.length} tracks`;
 
-  if (currentFilter === "all") {
+  if (currentFilter === "all" && !searchTerm.trim()) {
     const grouped = groupTracksByCategory(filteredTracks);
 
     Object.keys(grouped).forEach((category) => {
@@ -129,7 +149,7 @@ function renderTracks() {
 
       const title = document.createElement("h3");
       title.className = "category-title";
-      title.textContent = prettyCategory(category);
+      title.textContent = `${prettyCategory(category)} (${grouped[category].length})`;
 
       const grid = document.createElement("div");
       grid.className = "category-grid";
@@ -188,6 +208,8 @@ function updatePlayerUI(track) {
   playPauseBtn.textContent = audio.paused ? "▶" : "⏸";
   totalTimeEl.textContent = formatTime(audio.duration);
   updateFavoriteButton();
+  shuffleBtn.classList.toggle("active", isShuffleOn);
+  repeatBtn.classList.toggle("active", isRepeatOn);
 }
 
 function playTrack(index) {
@@ -218,13 +240,9 @@ function togglePlayPause() {
   }
 
   if (audio.paused) {
-    audio.play()
-      .then(() => {
-        if (currentIndex >= 0) updatePlayerUI(tracks[currentIndex]);
-      })
-      .catch((error) => {
-        console.error("Resume failed:", error);
-      });
+    audio.play().then(() => {
+      if (currentIndex >= 0) updatePlayerUI(tracks[currentIndex]);
+    }).catch((error) => console.error("Resume failed:", error));
   } else {
     audio.pause();
     if (currentIndex >= 0) updatePlayerUI(tracks[currentIndex]);
@@ -233,6 +251,13 @@ function togglePlayPause() {
 
 function playNext() {
   if (!tracks.length) return;
+
+  if (isShuffleOn) {
+    const randomIndex = Math.floor(Math.random() * tracks.length);
+    playTrack(randomIndex);
+    return;
+  }
+
   if (currentIndex === -1) {
     playTrack(0);
     return;
@@ -244,6 +269,7 @@ function playNext() {
 
 function playPrev() {
   if (!tracks.length) return;
+
   if (currentIndex === -1) {
     playTrack(0);
     return;
@@ -262,9 +288,27 @@ chips.forEach((chip) => {
   });
 });
 
+searchInput.addEventListener("input", () => {
+  searchTerm = searchInput.value;
+  applyFilter();
+});
+
 playPauseBtn.addEventListener("click", togglePlayPause);
 nextBtn.addEventListener("click", playNext);
 prevBtn.addEventListener("click", playPrev);
+
+shuffleBtn.addEventListener("click", () => {
+  isShuffleOn = !isShuffleOn;
+  shuffleBtn.classList.toggle("active", isShuffleOn);
+  showToast(isShuffleOn ? "Shuffle on" : "Shuffle off");
+});
+
+repeatBtn.addEventListener("click", () => {
+  isRepeatOn = !isRepeatOn;
+  repeatBtn.classList.toggle("active", isRepeatOn);
+  showToast(isRepeatOn ? "Repeat on" : "Repeat off");
+});
+
 favoriteBtn.addEventListener("click", toggleFavorite);
 
 seekBar.addEventListener("input", () => {
@@ -281,8 +325,7 @@ audio.addEventListener("timeupdate", () => {
   currentTimeEl.textContent = formatTime(audio.currentTime);
 
   if (isFinite(audio.duration) && audio.duration > 0) {
-    const progress = (audio.currentTime / audio.duration) * 100;
-    seekBar.value = progress;
+    seekBar.value = (audio.currentTime / audio.duration) * 100;
   } else {
     seekBar.value = 0;
   }
@@ -296,13 +339,16 @@ audio.addEventListener("play", () => {
 });
 
 audio.addEventListener("pause", () => {
-  if (currentIndex >= 0) {
-    updatePlayerUI(tracks[currentIndex]);
-  }
+  if (currentIndex >= 0) updatePlayerUI(tracks[currentIndex]);
 });
 
 audio.addEventListener("ended", () => {
-  playNext();
+  if (isRepeatOn) {
+    audio.currentTime = 0;
+    audio.play();
+  } else {
+    playNext();
+  }
 });
 
 window.addEventListener("beforeinstallprompt", (event) => {
@@ -313,7 +359,6 @@ window.addEventListener("beforeinstallprompt", (event) => {
 
 installBtn.addEventListener("click", async () => {
   if (!deferredPrompt) return;
-
   deferredPrompt.prompt();
   await deferredPrompt.userChoice;
   deferredPrompt = null;
@@ -322,6 +367,7 @@ installBtn.addEventListener("click", async () => {
 
 window.addEventListener("appinstalled", () => {
   installBtn.classList.add("hidden");
+  showToast("App installed");
 });
 
 fetch("data/tracks.json")
