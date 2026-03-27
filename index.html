@@ -21,10 +21,14 @@
     <div class="brand-wrap">
       <p class="eyebrow">Student Study Music</p>
       <h1>DN Focus Music</h1>
-      <p class="subtext">Calm sounds for deep study, focus sessions, and offline listening.</p>
+      <p class="subtext">
+        Calm sounds for deep study, focus sessions, and offline listening.
+      </p>
     </div>
 
-    <button id="installBtn" class="install-btn hidden" type="button">Install App</button>
+    <button id="installBtn" class="install-btn hidden" type="button">
+      Install App
+    </button>
   </header>
 
   <main class="app-shell">
@@ -34,7 +38,8 @@
         <p class="hero-label">Focus Better</p>
         <h2>Study without distractions</h2>
         <p>
-          Calm Piano, LoFi, Rain, Ambient, and White Noise — made for students who want a clean, premium study experience.
+          Calm Piano, LoFi, Rain, Ambient, and White Noise — made for students
+          who want a clean, premium study experience.
         </p>
 
         <div class="hero-stats">
@@ -55,17 +60,22 @@
     </section>
 
     <section class="search-wrap">
-      <input id="searchInput" class="search-input" type="text" placeholder="Search tracks..." />
+      <input
+        id="searchInput"
+        class="search-input"
+        type="text"
+        placeholder="Search tracks..."
+      />
     </section>
 
     <section class="quick-categories">
-      <button class="chip active" data-filter="all">All</button>
-      <button class="chip" data-filter="calm-piano">Calm Piano</button>
-      <button class="chip" data-filter="lofi">LoFi</button>
-      <button class="chip" data-filter="rain">Rain</button>
-      <button class="chip" data-filter="ambient">Ambient</button>
-      <button class="chip" data-filter="white-noise">White Noise</button>
-      <button class="chip" data-filter="favorites">Favorites</button>
+      <button class="chip active" data-filter="all" type="button">All</button>
+      <button class="chip" data-filter="calm-piano" type="button">Calm Piano</button>
+      <button class="chip" data-filter="lofi" type="button">LoFi</button>
+      <button class="chip" data-filter="rain" type="button">Rain</button>
+      <button class="chip" data-filter="ambient" type="button">Ambient</button>
+      <button class="chip" data-filter="white-noise" type="button">White Noise</button>
+      <button class="chip" data-filter="favorites" type="button">Favorites</button>
     </section>
 
     <section class="section-head">
@@ -79,7 +89,11 @@
   </main>
 
   <div class="mini-player" id="miniPlayer">
-    <img id="playerCover" src="assets/images/covers/lofi.jpg" alt="Now playing cover" />
+    <img
+      id="playerCover"
+      src="assets/images/covers/lofi.jpg"
+      alt="Now playing cover"
+    />
 
     <div class="player-main">
       <div class="player-top-row">
@@ -88,12 +102,26 @@
           <div id="playerCategory" class="player-category">Ready to play</div>
         </div>
 
-        <button id="favoriteBtn" class="favorite-btn" type="button" aria-label="Toggle favorite">♡</button>
+        <button
+          id="favoriteBtn"
+          class="favorite-btn"
+          type="button"
+          aria-label="Toggle favorite"
+        >
+          ♡
+        </button>
       </div>
 
       <div class="progress-wrap">
         <span id="currentTime" class="time-text">0:00</span>
-        <input id="seekBar" class="seek-bar" type="range" min="0" max="100" value="0" />
+        <input
+          id="seekBar"
+          class="seek-bar"
+          type="range"
+          min="0"
+          max="100"
+          value="0"
+        />
         <span id="totalTime" class="time-text">0:00</span>
       </div>
 
@@ -112,9 +140,12 @@
   <script src="js/app.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("service-worker.js")
-          .catch((error) => console.error("Service worker registration failed:", error));
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .catch(function (error) {
+            console.error("Service worker registration failed:", error);
+          });
       });
     }
   </script>
