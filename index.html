@@ -9,29 +9,60 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loader-ring"></div>
+    <h2>DN Focus Music</h2>
+    <p>Loading your focus library...</p>
+  </div>
+
   <header class="topbar">
-    <div>
-      <p class="eyebrow">Study Music App</p>
+    <div class="brand-wrap">
+      <p class="eyebrow">Student Study Music</p>
       <h1>DN Focus Music</h1>
-      <p class="subtext">Calm sounds for deep study and offline listening.</p>
+      <p class="subtext">Calm sounds for deep study, focus sessions, and offline listening.</p>
     </div>
   </header>
 
   <main class="app-shell">
     <section class="hero-card">
+      <div class="hero-overlay"></div>
       <div class="hero-copy">
-        <p class="hero-label">Focus better</p>
-        <h2>Your music library for students</h2>
+        <p class="hero-label">Focus Better</p>
+        <h2>Study without distractions</h2>
         <p>
-          Calm Piano, LoFi, Rain, Ambient, and White Noise —
-          designed for study sessions.
+          Calm Piano, LoFi, Rain, Ambient, and White Noise — made for students who want a clean, premium study experience.
         </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span id="heroTrackCount">0</span>
+            <small>Tracks</small>
+          </div>
+          <div class="hero-stat">
+            <span>5</span>
+            <small>Categories</small>
+          </div>
+          <div class="hero-stat">
+            <span>Offline</span>
+            <small>Ready</small>
+          </div>
+        </div>
       </div>
     </section>
 
+    <section class="quick-categories">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="calm-piano">Calm Piano</button>
+      <button class="chip" data-filter="lofi">LoFi</button>
+      <button class="chip" data-filter="rain">Rain</button>
+      <button class="chip" data-filter="ambient">Ambient</button>
+      <button class="chip" data-filter="white-noise">White Noise</button>
+    </section>
+
     <section class="section-head">
-      <h2>All Tracks</h2>
-      <p id="trackCount">Loading tracks...</p>
+      <div>
+        <h2>Music Library</h2>
+        <p id="trackCount">Loading tracks...</p>
+      </div>
     </section>
 
     <section id="trackList" class="track-list"></section>
