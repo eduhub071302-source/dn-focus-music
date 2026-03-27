@@ -13,10 +13,18 @@ const nextBtn = document.getElementById("nextBtn");
 const loadingScreen = document.getElementById("loadingScreen");
 const chips = document.querySelectorAll(".chip");
 
+const seekBar = document.getElementById("seekBar");
+const currentTimeEl = document.getElementById("currentTime");
+const totalTimeEl = document.getElementById("totalTime");
+const favoriteBtn = document.getElementById("favoriteBtn");
+const installBtn = document.getElementById("installBtn");
+
 let tracks = [];
 let filteredTracks = [];
 let currentIndex = -1;
 let currentFilter = "all";
+let deferredPrompt = null;
+let favorites = JSON.parse(localStorage.getItem("dn-focus-favorites") || "[]");
 
 function prettyCategory(category) {
   switch (category) {
@@ -35,9 +43,54 @@ function prettyCategory(category) {
   }
 }
 
+function formatTime(seconds) {
+  if (!isFinite(seconds) || seconds < 0) return "0:00";
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+}
+
+function saveFavorites() {
+  localStorage.setItem("dn-focus-favorites", JSON.stringify(favorites));
+}
+
+function isFavorite(trackId) {
+  return favorites.includes(trackId);
+}
+
+function toggleFavorite() {
+  if (currentIndex === -1 || !tracks[currentIndex]) return;
+
+  const trackId = tracks[currentIndex].id;
+
+  if (isFavorite(trackId)) {
+    favorites = favorites.filter((id) => id !== trackId);
+  } else {
+    favorites.push(trackId);
+  }
+
+  saveFavorites();
+  updateFavoriteButton();
+  applyFilter();
+}
+
+function updateFavoriteButton() {
+  if (currentIndex === -1 || !tracks[currentIndex]) {
+    favoriteBtn.textContent = "♡";
+    favoriteBtn.classList.remove("active");
+    return;
+  }
+
+  const active = isFavorite(tracks[currentIndex].id);
+  favoriteBtn.textContent = active ? "♥" : "♡";
+  favoriteBtn.classList.toggle("active", active);
+}
+
 function applyFilter() {
   if (currentFilter === "all") {
     filteredTracks = [...tracks];
+  } else if (currentFilter === "favorites") {
+    filteredTracks = tracks.filter((track) => isFavorite(track.id));
   } else {
     filteredTracks = tracks.filter((track) => track.category === currentFilter);
   }
@@ -60,7 +113,7 @@ function renderTracks() {
   trackList.innerHTML = "";
 
   if (!filteredTracks.length) {
-    trackList.innerHTML = `<div class="empty-state">No tracks found in this category.</div>`;
+    trackList.innerHTML = `<div class="empty-state">No tracks found in this section.</div>`;
     trackCount.textContent = "0 tracks";
     return;
   }
@@ -133,6 +186,8 @@ function updatePlayerUI(track) {
   playerTitle.textContent = track.title;
   playerCategory.textContent = prettyCategory(track.category);
   playPauseBtn.textContent = audio.paused ? "▶" : "⏸";
+  totalTimeEl.textContent = formatTime(audio.duration);
+  updateFavoriteButton();
 }
 
 function playTrack(index) {
@@ -142,6 +197,8 @@ function playTrack(index) {
   const track = tracks[index];
 
   audio.src = track.file;
+  audio.load();
+
   audio.play()
     .then(() => {
       updatePlayerUI(track);
@@ -208,6 +265,28 @@ chips.forEach((chip) => {
 playPauseBtn.addEventListener("click", togglePlayPause);
 nextBtn.addEventListener("click", playNext);
 prevBtn.addEventListener("click", playPrev);
+favoriteBtn.addEventListener("click", toggleFavorite);
+
+seekBar.addEventListener("input", () => {
+  if (!isFinite(audio.duration)) return;
+  const seekTo = (seekBar.value / 100) * audio.duration;
+  audio.currentTime = seekTo;
+});
+
+audio.addEventListener("loadedmetadata", () => {
+  totalTimeEl.textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener("timeupdate", () => {
+  currentTimeEl.textContent = formatTime(audio.currentTime);
+
+  if (isFinite(audio.duration) && audio.duration > 0) {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    seekBar.value = progress;
+  } else {
+    seekBar.value = 0;
+  }
+});
 
 audio.addEventListener("play", () => {
   if (currentIndex >= 0) {
@@ -224,6 +303,25 @@ audio.addEventListener("pause", () => {
 
 audio.addEventListener("ended", () => {
   playNext();
+});
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  installBtn.classList.remove("hidden");
+});
+
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.classList.add("hidden");
+});
+
+window.addEventListener("appinstalled", () => {
+  installBtn.classList.add("hidden");
 });
 
 fetch("data/tracks.json")
