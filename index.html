@@ -1,167 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DN Focus Music</title>
-
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1220;
-      color: white;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      background: #111a2b;
-    }
-
-    .container {
-      padding: 15px;
-    }
-
-    .track {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      background: #17233a;
-      padding: 10px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .track img {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-    }
-
-    .track-info {
-      flex: 1;
-    }
-
-    .track-title {
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .track-artist {
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    .player {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #111a2b;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .player img {
-      width: 50px;
-      height: 50px;
-      border-radius: 8px;
-    }
-
-    .controls button {
-      background: #4ea1ff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Study Music App</p>
+      <h1>DN Focus Music</h1>
+      <p class="subtext">Calm sounds for deep study and offline listening.</p>
+    </div>
+  </header>
 
-<header>🎧 DN Focus Music</header>
-
-<div class="container" id="trackList"></div>
-
-<div class="player">
-  <img id="playerCover" src="">
-  <div style="flex:1;">
-    <div id="playerTitle">Select a song</div>
-  </div>
-  <div class="controls">
-    <button onclick="playPause()">▶</button>
-    <button onclick="nextTrack()">⏭</button>
-  </div>
-</div>
-
-<audio id="audio"></audio>
-
-<script>
-let tracks = [];
-let currentIndex = 0;
-let audio = document.getElementById("audio");
-
-fetch("data/tracks.json")
-  .then(res => res.json())
-  .then(data => {
-    tracks = data;
-    displayTracks();
-  });
-
-function displayTracks() {
-  const list = document.getElementById("trackList");
-  list.innerHTML = "";
-
-  tracks.forEach((track, index) => {
-    const div = document.createElement("div");
-    div.className = "track";
-
-    div.innerHTML = `
-      <img src="${track.cover}">
-      <div class="track-info">
-        <div class="track-title">${track.title}</div>
-        <div class="track-artist">${track.category}</div>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div class="hero-copy">
+        <p class="hero-label">Focus better</p>
+        <h2>Your music library for students</h2>
+        <p>
+          Calm Piano, LoFi, Rain, Ambient, and White Noise —
+          designed for study sessions.
+        </p>
       </div>
-    `;
+    </section>
 
-    div.onclick = () => playTrack(index);
-    list.appendChild(div);
-  });
-}
+    <section class="section-head">
+      <h2>All Tracks</h2>
+      <p id="trackCount">Loading tracks...</p>
+    </section>
 
-function playTrack(index) {
-  currentIndex = index;
-  const track = tracks[index];
+    <section id="trackList" class="track-list"></section>
+  </main>
 
-  audio.src = track.file;
-  audio.play();
+  <div class="mini-player" id="miniPlayer">
+    <img id="playerCover" src="assets/images/covers/lofi.jpg" alt="Now playing cover" />
+    <div class="player-meta">
+      <div id="playerTitle" class="player-title">Select a track</div>
+      <div id="playerCategory" class="player-category">Ready to play</div>
+    </div>
 
-  document.getElementById("playerTitle").innerText = track.title;
-  document.getElementById("playerCover").src = track.cover;
-}
+    <div class="player-controls">
+      <button id="prevBtn" class="player-btn" type="button">⏮</button>
+      <button id="playPauseBtn" class="player-btn player-btn-main" type="button">▶</button>
+      <button id="nextBtn" class="player-btn" type="button">⏭</button>
+    </div>
+  </div>
 
-function playPause() {
-  if (audio.paused) audio.play();
-  else audio.pause();
-}
+  <audio id="audio"></audio>
 
-function nextTrack() {
-  currentIndex++;
-  if (currentIndex >= tracks.length) currentIndex = 0;
-  playTrack(currentIndex);
-}
-</script>
-
+  <script src="js/app.js"></script>
 </body>
 </html>
