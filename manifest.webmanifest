@@ -1,0 +1,21 @@
+{
+  "name": "DN Focus Music",
+  "short_name": "DN Music",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07111d",
+  "theme_color": "#0b1220",
+  "description": "Calm study music app for students with offline-ready focus tracks.",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
