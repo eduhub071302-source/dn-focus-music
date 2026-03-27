@@ -15,6 +15,8 @@
     <p>Loading your focus library...</p>
   </div>
 
+  <div id="toast" class="toast">Saved</div>
+
   <header class="topbar">
     <div class="brand-wrap">
       <p class="eyebrow">Student Study Music</p>
@@ -50,6 +52,10 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="search-wrap">
+      <input id="searchInput" class="search-input" type="text" placeholder="Search tracks..." />
     </section>
 
     <section class="quick-categories">
@@ -92,9 +98,11 @@
       </div>
 
       <div class="player-controls">
+        <button id="shuffleBtn" class="player-btn" type="button">🔀</button>
         <button id="prevBtn" class="player-btn" type="button">⏮</button>
         <button id="playPauseBtn" class="player-btn player-btn-main" type="button">▶</button>
         <button id="nextBtn" class="player-btn" type="button">⏭</button>
+        <button id="repeatBtn" class="player-btn" type="button">🔁</button>
       </div>
     </div>
   </div>
