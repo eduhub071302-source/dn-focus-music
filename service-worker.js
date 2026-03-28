@@ -1,4 +1,4 @@
-const CACHE_NAME = "dn-focus-music-v10"; // 🔥 CHANGE VERSION EVERY UPDATE
+const CACHE_NAME = "dn-focus-music-v11"; // 🔥 CHANGE VERSION EVERY UPDATE
 
 const FILES_TO_CACHE = [
   "./",
