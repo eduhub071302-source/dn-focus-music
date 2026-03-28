@@ -391,7 +391,8 @@ fetch("data/tracks.json")
         Check data/tracks.json and file paths.
       </div>
     `;
-    setTimeout(() => {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
       loadingScreen.classList.add("hidden");
-    }, 650);
+    }, 500);
   });
