@@ -30,6 +30,7 @@
       display: flex;
       justify-content: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .focus-btn {
@@ -40,13 +41,28 @@
       color: white;
       cursor: pointer;
     }
+
+    .time-input {
+      width: 80px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
 
 <div class="focus-container">
   <h1>Focus Mode</h1>
-  <p>Stay focused. No distractions.</p>
+  <p>Set your own focus time</p>
+
+  <!-- TIME INPUT -->
+  <div>
+    <input id="minutesInput" class="time-input" type="number" value="25" min="1">
+    <span>minutes</span>
+  </div>
 
   <div id="timer" class="timer">25:00</div>
 
@@ -61,19 +77,33 @@
   <button onclick="goBack()" class="focus-btn">Back</button>
 </div>
 
+<!-- 🔊 ALARM SOUND -->
+<audio id="alarmSound">
+  <source src="assets/sfx/alarm.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 let time = 25 * 60;
 let interval = null;
 
+const timerEl = document.getElementById("timer");
+const input = document.getElementById("minutesInput");
+const alarm = document.getElementById("alarmSound");
+
 function updateDisplay() {
   const min = Math.floor(time / 60);
   const sec = time % 60;
-  document.getElementById("timer").textContent =
-    `${min}:${sec.toString().padStart(2, "0")}`;
+  timerEl.textContent = `${min}:${sec.toString().padStart(2, "0")}`;
 }
 
 function startTimer() {
   if (interval) return;
+
+  // take user input
+  if (time === 25 * 60 || time === 0) {
+    const minutes = parseInt(input.value) || 25;
+    time = minutes * 60;
+  }
 
   interval = setInterval(() => {
     if (time > 0) {
@@ -82,7 +112,11 @@ function startTimer() {
     } else {
       clearInterval(interval);
       interval = null;
-      alert("Session complete!");
+
+      // 🔥 ALARM
+      alarm.play();
+
+      alert("Time over! Stay strong 💪");
     }
   }, 1000);
 }
@@ -93,7 +127,8 @@ function pauseTimer() {
 }
 
 function resetTimer() {
-  time = 25 * 60;
+  const minutes = parseInt(input.value) || 25;
+  time = minutes * 60;
   updateDisplay();
   pauseTimer();
 }
