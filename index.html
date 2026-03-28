@@ -4,19 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DN Focus Music</title>
+
+  <!-- PWA -->
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#0b1220" />
+
+  <!-- 🔥 ICON FIX (VERY IMPORTANT) -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- STYLE -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+
+  <!-- LOADING -->
   <div id="loadingScreen" class="loading-screen">
     <div class="loader-ring"></div>
     <h2>DN Focus Music</h2>
     <p>Loading your focus library...</p>
   </div>
 
+  <!-- TOAST -->
   <div id="toast" class="toast">Saved</div>
 
+  <!-- HEADER -->
   <header class="topbar">
     <div class="brand-wrap">
       <p class="eyebrow">Student Study Music</p>
@@ -31,7 +45,10 @@
     </button>
   </header>
 
+  <!-- MAIN -->
   <main class="app-shell">
+
+    <!-- HERO -->
     <section class="hero-card">
       <div class="hero-overlay"></div>
       <div class="hero-copy">
@@ -59,6 +76,7 @@
       </div>
     </section>
 
+    <!-- SEARCH -->
     <section class="search-wrap">
       <input
         id="searchInput"
@@ -68,6 +86,7 @@
       />
     </section>
 
+    <!-- FILTER -->
     <section class="quick-categories">
       <button class="chip active" data-filter="all" type="button">All</button>
       <button class="chip" data-filter="calm-piano" type="button">Calm Piano</button>
@@ -78,6 +97,7 @@
       <button class="chip" data-filter="favorites" type="button">Favorites</button>
     </section>
 
+    <!-- TITLE -->
     <section class="section-head">
       <div>
         <h2>Music Library</h2>
@@ -85,9 +105,12 @@
       </div>
     </section>
 
+    <!-- TRACK LIST -->
     <section id="trackList" class="track-list"></section>
+
   </main>
 
+  <!-- PLAYER -->
   <div class="mini-player" id="miniPlayer">
     <img
       id="playerCover"
@@ -112,6 +135,7 @@
         </button>
       </div>
 
+      <!-- PROGRESS -->
       <div class="progress-wrap">
         <span id="currentTime" class="time-text">0:00</span>
         <input
@@ -125,6 +149,7 @@
         <span id="totalTime" class="time-text">0:00</span>
       </div>
 
+      <!-- CONTROLS -->
       <div class="player-controls">
         <button id="shuffleBtn" class="player-btn" type="button">🔀</button>
         <button id="prevBtn" class="player-btn" type="button">⏮</button>
@@ -135,9 +160,13 @@
     </div>
   </div>
 
+  <!-- AUDIO -->
   <audio id="audio"></audio>
 
+  <!-- JS -->
   <script src="js/app.js"></script>
+
+  <!-- SERVICE WORKER -->
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
@@ -149,5 +178,6 @@
       });
     }
   </script>
+
 </body>
 </html>
