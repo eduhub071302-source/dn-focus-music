@@ -1,4 +1,4 @@
-const CACHE_NAME = "dn-focus-music-v5";
+const CACHE_NAME = "dn-focus-music-v6";
 
 const FILES_TO_CACHE = [
   "./",
