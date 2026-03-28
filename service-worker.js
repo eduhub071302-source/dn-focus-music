@@ -1,8 +1,9 @@
-const CACHE_NAME = "dn-focus-music-v6";
+const CACHE_NAME = "dn-focus-music-v10"; // 🔥 CHANGE VERSION EVERY UPDATE
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
+  "./focus.html",
   "./css/style.css",
   "./js/app.js",
   "./data/tracks.json",
@@ -10,10 +11,10 @@ const FILES_TO_CACHE = [
 ];
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
-  self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
@@ -35,13 +36,13 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return (
-        cached ||
-        fetch(event.request).catch(() => {
-          return caches.match("./index.html");
-        })
-      );
-    })
+    fetch(event.request)
+      .then((response) => {
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, response.clone());
+          return response;
+        });
+      })
+      .catch(() => caches.match(event.request))
   );
 });
