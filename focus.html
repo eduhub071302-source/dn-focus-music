@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Mode | DN Music</title>
 
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .focus-container {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .timer {
+      font-size: 64px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .focus-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .focus-btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #5aa8ff, #7b6cff);
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="focus-container">
+  <h1>Focus Mode</h1>
+  <p>Stay focused. No distractions.</p>
+
+  <div id="timer" class="timer">25:00</div>
+
+  <div class="focus-controls">
+    <button id="startBtn" class="focus-btn">Start</button>
+    <button id="pauseBtn" class="focus-btn">Pause</button>
+    <button id="resetBtn" class="focus-btn">Reset</button>
+  </div>
+
+  <br>
+
+  <button onclick="goBack()" class="focus-btn">Back</button>
+</div>
+
+<script>
+let time = 25 * 60;
+let interval = null;
+
+function updateDisplay() {
+  const min = Math.floor(time / 60);
+  const sec = time % 60;
+  document.getElementById("timer").textContent =
+    `${min}:${sec.toString().padStart(2, "0")}`;
+}
+
+function startTimer() {
+  if (interval) return;
+
+  interval = setInterval(() => {
+    if (time > 0) {
+      time--;
+      updateDisplay();
+    } else {
+      clearInterval(interval);
+      interval = null;
+      alert("Session complete!");
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(interval);
+  interval = null;
+}
+
+function resetTimer() {
+  time = 25 * 60;
+  updateDisplay();
+  pauseTimer();
+}
+
+function goBack() {
+  window.location.href = "index.html";
+}
+
+document.getElementById("startBtn").onclick = startTimer;
+document.getElementById("pauseBtn").onclick = pauseTimer;
+document.getElementById("resetBtn").onclick = resetTimer;
+
+updateDisplay();
+</script>
+
+</body>
+</html>
